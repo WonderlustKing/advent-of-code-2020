@@ -325,16 +325,15 @@ var path =[
     ] ;
 
 const pathIndex = 3;
-var trees = 0;
-path.slice(0).reduce((accumulator, currentValue, index) => {
+var trees = path.slice(0).reduce((accumulator, currentValue, index) => {
     let nextMove = pathIndex * (index);
     while(nextMove >= (currentValue.length)) {
         currentValue = currentValue + currentValue;
     }
-    accumulator = currentValue.charAt(nextMove);
-    if (accumulator ==='#') {
-        trees++;
+    if (currentValue.charAt(nextMove) === '#') {
+        accumulator++;
     }
-});
+    return accumulator;
+}, 0);
 
 console.log("trees", trees);
