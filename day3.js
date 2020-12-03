@@ -324,6 +324,7 @@ var path =[
        '.#.#.#....#..........#.........'
     ] ;
 
+//1st part - Right 3, down 1 step
 const pathIndex = 3;
 var trees = path.slice(0).reduce((accumulator, currentValue, index) => {
     let nextMove = pathIndex * index;
