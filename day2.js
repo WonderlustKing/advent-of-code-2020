@@ -1001,6 +1001,7 @@ const policyAndPasswords = [
     '14-17 n: nnhnnnnnnnnnnnnnhnn'
   ]
   
+//1st part
   var result1 = policyAndPasswords.map(entry => entry.split(" "))
       .flatMap(subEntry => ({ 
           timesToBeShown: subEntry[0].split("-"),
@@ -1010,3 +1011,16 @@ const policyAndPasswords = [
                     && newEntry.timesCharShown <= newEntry.timesToBeShown[1])
   
   console.log("result1 is", result1.length);
+
+
+//2nd part
+  var result2 = policyAndPasswords.map(entry => entry.split(" "))
+  .flatMap(subEntry => ({ 
+      charToCheck: subEntry[1].charAt(0),
+      password : subEntry[2],
+      firstCharToCheck : subEntry[2].charAt(Number(subEntry[0].split("-")[0]) - 1),
+      secondCharToCheck: subEntry[2].charAt(Number(subEntry[0].split("-")[1]) -1),
+  })).filter(newEntry => (newEntry.firstCharToCheck === newEntry.charToCheck && newEntry.secondCharToCheck !== newEntry.charToCheck) ||
+                                        (newEntry.firstCharToCheck !== newEntry.charToCheck && newEntry.secondCharToCheck === newEntry.charToCheck))
+
+console.log("result2 is", result2.length);
