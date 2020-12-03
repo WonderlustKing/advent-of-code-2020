@@ -326,7 +326,7 @@ var path =[
 
 const pathIndex = 3;
 var trees = path.slice(0).reduce((accumulator, currentValue, index) => {
-    let nextMove = pathIndex * (index);
+    let nextMove = pathIndex * index;
     while(nextMove >= (currentValue.length)) {
         currentValue = currentValue + currentValue;
     }
